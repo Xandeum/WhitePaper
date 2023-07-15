@@ -47,9 +47,12 @@
 
 
 \title{%
+\ \\
+\ \\
+\ \\
 Xandeum: An L1 Smart Contract Platform with Scalable Blockchain-Based Storage \\
 \ \\
-\large INTERMEDIATE DRAFT v0.2}
+\large INTERMEDIATE DRAFT v0.3}
 \author{
 {\rm Bernie Blume}\\
 bernieb@xandeum.com
@@ -57,12 +60,18 @@ bernieb@xandeum.com
 
 %\date{}							% Activate to display a given date or no date
 
+\renewcommand*\contentsname{Summary}
+
 \begin{document}
 \maketitle
 %\section{}
 %\subsection{}
 
 \maketitle
+
+\ \\
+\ \\
+\ \\
 
 \subsection*{Abstract}
 This paper introduces Xandeum, a Layer-1 smart contract platform that encompasses an integrated, scalable, blockchain-based decentralized storage solution.
@@ -74,6 +83,10 @@ Xandeum narrows the gap between programs designed for blockchain and those inten
 To achieve superior scalability, Xandeum adopts a modified version of Solana for its smart contract layer and incorporates an additional storage layer known as EGGS (External Global Grouped Storage) to supplement Solana's "accounts" storage layer. Unlike Solana's accounts that face economic scaling challenges even at gigabyte levels, Xandeum is designed to economically scale to exabyte and zettabyte levels. This scaling prowess stems from adopting and adapting certain strategies proven successful by storage blockchains like Sia and Filecoin, which involves delegating EGGS away from the validators to a network of storage provider nodes.
 
 Xandeum is architected with the objective of facilitating seamless adoption. For instance, it embraces the Move programming language as the default choice, allowing the same global storage operators to be used for both the Accounts storage and the EGGS. This compatibility underscores Xandeum's commitment to minimizing friction in the transition from traditional to decentralized applications.
+
+\clearpage
+\tableofcontents
+\clearpage
 
 \section{Design Goals}
 \subsection{Empowering People}
@@ -108,7 +121,7 @@ Moreover, Xandeum mitigates the entry barrier for developers by adopting the Mov
 
 In summary, Xandeum is designed to eliminate the roadblocks hampering the growth of Web3, providing startups with the tools necessary to bring their visions of decentralized applications to life. This approach clears the path for the creation of Web3 counterparts of popular Web2 applications, marking a critical step towards a fully decentralized internet.
 
-/subsection{Frictionless Adoption}
+\subsection{Frictionless Adoption}
 Ensuring frictionless adoption of new technologies is a vital aspect of promoting their use and facilitating a successful transition. Xandeum acknowledges this necessity and, as a core design principle, has embedded mechanisms to foster easy and seamless integration into its platform.
 
 Adoption is made effortless through Xandeum's use of the Move language as its default programming language. Move offers an approachable and powerful language for developers, providing consistency and stability for both the Accounts layer, which is based on Solana's accounts, and the EGGS layer (External Global Grouped Storage). The use of the same global storage operators across these layers simplifies the development process, significantly reducing the complexity and learning curve for developers transitioning to the decentralized storage solution. This is a remarkable departure from the intricate, often confusing patterns that prevail in other blockchain environments.

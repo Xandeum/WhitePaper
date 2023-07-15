@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Design Goals}{4}{}%
+\contentsline {subsection}{\numberline {1.1}Empowering People}{4}{}%
+\contentsline {subsection}{\numberline {1.2}Removing Web3 Roadblocks}{5}{}%
+\contentsline {subsection}{\numberline {1.3}Frictionless Adoption}{6}{}%
+\contentsline {section}{\numberline {2}Smart Contracts Layer}{7}{}%
+\contentsline {subsection}{\numberline {2.1}Permissioned Fork of Solana}{7}{}%
+\contentsline {subsection}{\numberline {2.2}Use of the Move Language}{7}{}%
+\contentsline {subsection}{\numberline {2.3}Storage Follows Control}{9}{}%
+\contentsline {section}{\numberline {3}Storage Layer}{9}{}%
+\contentsline {subsection}{\numberline {3.1}External Global Grouped Storage (EGGS) Overview}{9}{}%
+\contentsline {subsection}{\numberline {3.2}Fault Tolerance}{10}{}%
+\contentsline {subsection}{\numberline {3.3}Proof of Replication}{11}{}%
+\contentsline {subsection}{\numberline {3.4}Elimination of Proof of Spacetime (PoST)}{11}{}%
+\contentsline {subsection}{\numberline {3.5}Practical zk-SNARK Implementation}{12}{}%
+\contentsline {section}{\numberline {4}Market Dynamics}{13}{}%
