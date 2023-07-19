@@ -1,20 +1,30 @@
 \documentclass[11pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{amsmath}
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{float}
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+\usepackage{setspace} % This package can be used to control the spacing
 %\geometry{landscape}                		% Activate for rotated page geometry
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 \usepackage{listings}
-
+\usepackage{titlesec}
+\let\oldsection\section
+\renewcommand{\section}{\clearpage\oldsection}
 \usepackage{xcolor}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+
+\definecolor{boxes}{rgb}{0.68, 0.85, 0.9} % define a light blue color
+
+\setlength{\parskip}{1em} % add space between paragraphs
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolor},   
@@ -49,10 +59,9 @@
 \title{%
 \ \\
 \ \\
-\ \\
 Xandeum: An L1 Smart Contract Platform with Scalable Blockchain-Based Storage \\
 \ \\
-\large INTERMEDIATE DRAFT v0.4}
+\large INTERMEDIATE DRAFT v0.5}
 \author{
 {\rm Bernie Blume}\\
 bernieb@xandeum.com
@@ -70,8 +79,6 @@ bernieb@xandeum.com
 \maketitle
 
 \ \\
-\ \\
-\ \\
 
 \subsection*{Abstract}
 This paper introduces Xandeum, a Layer-1 smart contract platform with an integrated, scalable, blockchain-based decentralized storage solution.
@@ -80,7 +87,7 @@ Today, the underperformance of storage solutions compared to conventional server
 
 Xandeum blurs the line between applications designed for the blockchain (Web3) and those hosted on servers leveraging data center or cloud based storage solutions (Web2). Web2 applications have access to high-speed, high-capacity centralized storage solutions allowing for dynamice creation, reading, updating, and deletion (CRUD) of data. Xandeum is the Web3 CRUD solution adding censorship-resistance and tamper-proof (immutability) that is effecient, scalable, secure, and fully integrated into the smart contract platform. Xandeum is to storage what what other Layer-1 block chain solutions are to the CPU.
 
-Borrowing from an industry leading Layer-1 smart contract solution, Xadeum inherits and extends its scalability even while adding its External Global Grouped Storage (EGGS) storage layer solution while avoiding economic scaling challenges. Xandeum is designed from the ground up to be economical even while scaling to from todays exabyte challenges to tomorrows yottabyte. Xandeum achieves these milestones by adopting, adapting, and improving upon proven stratgies pioneered from other storage focused block chains, while smartly applying lessons learned to overcome security, scalability, and economic challenges each of them have failed to overcome in part or whole.
+Borrowing from an industry leading Layer-1 smart contract solution, Xadeum inherits and extends its scalability even while adding its External Global Grouped Storage (EGGS) storage layer solution while avoiding economic scaling challenges. Xandeum is designed from the ground up to be economical even while scaling to from today's exabyte challenges to tomorrow's yottabyte. Xandeum achieves these milestones by adopting, adapting, and improving upon proven stratgies pioneered from other storage focused block chains, while smartly applying lessons learned to overcome security, scalability, and economic challenges each of them have failed to overcome in part or whole.
 
 Xandeum's architecture facilitates seamless adoption, allowing developers to smoothly transition to Xandeum's storage solution. Xandeum has achieved this by embracing the Move programming language, allowing the same global storage operators to be used for both account and EGGS storage. Compatiblity sits at the heart of Xandeum's commitment to developers and individuals alike, minimizing friction in the transition from Web2 data center or cloud storage based applications to Xandeum's Web3 decentralized storage solution.
 
@@ -89,10 +96,72 @@ Xandeum's architecture facilitates seamless adoption, allowing developers to smo
 \clearpage
 
 \section{Design Goals}
-\subsection{Empowering People}
-One of Xandeum's foremost design objectives is the empowerment of the individual, a concept that sits at the core of decentralized technology. This aim transcends conventional use cases and focuses on a broader societal shift that lies at the heart of the blockchain revolution.
+\subsection{Boost Self-Determination of the Individual}
+One of Xandeum's foremost design objectives is to boost the self-determination of the individual, a concept that sits at the core of decentralized technology. This aim transcends conventional use cases and focuses on a broader societal shift that lies at the heart of the blockchain revolution.
 
-Empowerment, as it is interpreted here, pertains to the power of individuals to own, control, and benefit from their data. This is a sharp departure from the prevailing Web2 paradigm, where data is predominantly controlled by centralized entities such as corporations or governments. The advancement of decentralized technologies and Web3 has brought us to the precipice of a paradigm shift, where individuals regain control and derive the full value from their data.
+Self-determination, as opposed to determination by foreign forces, has been a common theme for humanity for ages, and can even be traced back to evolution in general. Foreign forces can be tribal leaders, modern governments, the need to spend the day hunting in order to survive tomorrow, and much more. The following figure illustrates the point, using $\mathcal{D}_{S}$ as the degree of collective self-determination in society, on a scale of 0 (totally controlled by external forces) to 1 (ideal self-determination and self-realization).
+
+\ \\
+
+\begin{figure}[H]
+\noindent
+\begin{tikzpicture}
+    \pgfmathsetmacro{\bigspacing}{0.1*\textwidth/1pt} % larger space, 10% of text width
+    \pgfmathsetmacro{\spacing}{(0.2*\textwidth-\bigspacing)/3/1pt} % normal space, (20% of text width - larger space) divided by 3
+    \pgfmathsetmacro{\rectanglewidth}{0.8*\textwidth/5/1pt} % rectangle width, 80% of text width divided by 5
+    
+    \draw[fill=boxes,draw=black,rounded corners] (0*\rectanglewidth+0*\spacing pt,0) rectangle ++(\rectanglewidth pt,0.4cm);
+    \node[at={(0*\rectanglewidth+0*\spacing pt+0.5*\rectanglewidth pt, -0.15cm)}, anchor=south] {$\mathcal{D}_{S,1}$ = 0.06};
+    \node[below=0.5cm,align=center] at (0*\rectanglewidth+0*\spacing pt+0.5*\rectanglewidth pt,0) {Stone Age \\ Tribes};
+
+    \draw[fill=boxes,draw=black,rounded corners] (1*\rectanglewidth+1*\spacing pt,0) rectangle ++(\rectanglewidth pt,1cm);
+    \node[at={(1*\rectanglewidth+1*\spacing pt+0.5*\rectanglewidth pt, -0.15cm)}, anchor=south] {$\mathcal{D}_{S,2}$ = 0.15};
+    \node[below=0.5cm,align=center] at (1*\rectanglewidth+1*\spacing pt+0.5*\rectanglewidth pt,0) {Hunters \& \\ Gatherers};
+
+    \draw[fill=boxes,draw=black,rounded corners] (2*\rectanglewidth+2*\spacing pt,0) rectangle ++(\rectanglewidth pt,1.8cm);
+    \node[at={(2*\rectanglewidth+2*\spacing pt+0.5*\rectanglewidth pt, -0.15cm)}, anchor=south] {$\mathcal{D}_{S,3}$ = 0.27};
+    \node[below=0.5cm,align=center] at (2*\rectanglewidth+2*\spacing pt+0.5*\rectanglewidth pt,0) {Kings \& \\ Emperors};
+
+    \draw[fill=boxes,draw=black,rounded corners] (3*\rectanglewidth+3*\spacing pt,0) rectangle ++(\rectanglewidth pt,2.53cm);
+    \node[at={(3*\rectanglewidth+3*\spacing pt+0.5*\rectanglewidth pt, -0.15cm)}, anchor=south] {$\mathcal{D}_{S,4}$ = 0.38};
+    \node[below=0.5cm,align=center] at (3*\rectanglewidth+3*\spacing pt+0.5*\rectanglewidth pt,0) {Modern Life \\ Web2};
+    
+    % Add rotated text
+    \node[rotate=90, above] at (4*\rectanglewidth+3.5*\spacing pt+0.5*\bigspacing pt, 3.75cm) {The Web3 Gap};
+
+    \draw[fill=boxes,draw=black,rounded corners] (4*\rectanglewidth+3*\spacing+\bigspacing pt,0) rectangle ++(\rectanglewidth pt,6.3cm);
+    \node[at={(4*\rectanglewidth+3*\spacing+\bigspacing pt+0.5*\rectanglewidth pt, -0.15cm)}, anchor=south] {$\mathcal{D}_{S,5}$ = 0.95};
+    \node[below=0.5cm,align=center] at (4*\rectanglewidth+3*\spacing+\bigspacing pt+0.5*\rectanglewidth pt,0) {Web3 \\ sedApps};
+
+    \draw (0, -1.5cm) -- (\textwidth, -1.5cm); % Draw a horizontal line at the bottom of the figure, 1.5cm below the bottom of the rectangles
+\end{tikzpicture}
+\caption{Collective Degree of Self-Determination $\mathcal{D}_{S,i}$ over time.}
+\label{fig:my_label}
+\end{figure}
+
+We then define the collective degree of determination by foreign forces, $\mathcal{D}_{F}$, as
+\begin{equation}
+\mathcal{D}_{S} + \mathcal{D}_{F} = 1 
+\end{equation}
+
+The liberating power of evolutionary step $i$, $\mathcal{L}_{\mathit{i}}$, follows this equation:
+\begin{equation}
+\mathcal{D}_{F,i} = \mathcal{D}_{F,i-1} \cdot \frac{1}{\mathcal{L_{\mathit{i}}}}
+\end{equation}
+
+Our hypothesis is that all major evolutionary steps have increased collective self-determination, thus
+
+\begin{equation}
+\forall i = 1, 2, 3, \ldots, \infty, \quad \mathcal{L}_{\mathit{i}} > 1
+\end{equation}
+
+Xandeum's key design goal is to maximize $\mathcal{L}_{\mathit{i}}$, the liberating power of the next, blockchain-induced evolutionary step that humanity is taking. Of all possible Xandeum solutions $\mathcal{X}_{j}$, with $\mathcal{L(\mathcal{X}_{j})}$ representing the liberating power of solution $\mathcal{X}_{j}$ over the web2-based status quo, we pick solution $\mathcal{X}_{J}$, where
+
+\begin{equation}
+J = \arg \max_{j} \mathcal{L(\mathcal{X_j)}}
+\end{equation}
+
+Self-determination or the ability to control one's own destiny, as it is interpreted here, pertains to the power of individuals to own, control, and benefit from their data. This is a sharp departure from the prevailing Web2 paradigm, where data is predominantly controlled by centralized entities such as corporations or governments. The advancement of decentralized technologies and Web3 has brought us to the precipice of a paradigm shift, where individuals regain control and derive the full value from their data.
 
 Xandeum furthers this vision by creating a Layer-1 platform that not only enables the development and operation of decentralized applications but also provides a robust, scalable, and efficient storage solution. In conventional server-based systems, programs have unrestricted access to vast and high-speed storage, allowing them to create, read, update, and delete data freely. This is not commonly the case with existing blockchain solutions.
 
@@ -273,5 +342,7 @@ To ensure transparency, Xandeum offers extensive dashboards providing real-time 
 
 The importance of effective supply-demand management cannot be overstated in blockchain and other distributed systems. With systems like Xandeum, where storage space is a primary commodity, this becomes even more critical. By applying the principles of dynamic pricing, machine learning-based forecasting, and providing real-time transparency, Xandeum is pioneering a sophisticated model for supply-demand management in decentralized storage systems.
 
+\section{Economics}
+tbd
 
 \end{document}  
