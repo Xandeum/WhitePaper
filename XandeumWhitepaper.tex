@@ -1,4 +1,4 @@
-\documentclass[11 pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\documentclass[11pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{amsmath}
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
 \usepackage{tikz}
@@ -6,16 +6,13 @@
 \usepackage{float}
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
 \usepackage{setspace} % This package can be used to control the spacing
-\onehalfspacing
 %\geometry{landscape}                		% Activate for rotated page geometry
-\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{titlesec}
-\usepackage{hyperref}
-
 \let\oldsection\section
 \renewcommand{\section}{\clearpage\oldsection}
 \usepackage{xcolor}
@@ -49,11 +46,22 @@
 }
 \lstset{style=mystyle}
 
+%\usepackage{blindtext}
+%\usepackage{showframe}
+%\renewcommand*\ShowFrameColor{\color{red}}
+%\renewcommand{\arraystretch}{1.2}
+
+%SetFonts
+
+%SetFonts
+
+
 \title{%
+\ \\
 \ \\
 Xandeum: An L1 Smart Contract Platform with Scalable Blockchain-Based Storage \\
 \ \\
-\large DRAFT v0.6}
+\large INTERMEDIATE DRAFT v0.5}
 \author{
 {\rm Bernie Blume}\\
 bernieb@xandeum.com
@@ -70,31 +78,18 @@ bernieb@xandeum.com
 
 \maketitle
 
-\textbf{\footnotesize Legal Disclaimer}\scriptsize
-~~Nothing in this White Paper is an offer to sell, or the solicitation of an offer to buy, any tokens. Xandeum is publishing this White Paper solely to receive feedback and comments from the public. If and when Xandeum offers for sale any tokens (or a Simple Agreement for Future Tokens), it will do so through definitive offering documents, including a disclosure document and risk factors. Those definitive documents also are expected to include an updated version of this White Paper, which may differ significantly from the current version.
+\ \\
 
-Nothing in this White Paper should be treated or read as a guarantee or promise of how Xandeum's business or the tokens will develop or of the utility or value of the tokens. This White Paper outlines current plans, which could change at its discretion, and the success of which will depend on many factors outside Xandeums control, including market-based factors and factors within the data and cryptocurrency industries, among others. Any statements about future events are based solely on Xandeum's analysis of the issues described in this White Paper. That analysis may prove to be incorrect.
-
-\begin{abstract}
+\subsection*{Abstract}
 This paper introduces Xandeum, a Layer-1 smart contract platform with an integrated, scalable, blockchain-based decentralized storage solution.
 
-Today, the underperformance of blockchain storage solutions compared to conventional Web2 applications presents a significant obstacle to the broader adoption of Web3.
+Today, the underperformance of storage solutions compared to conventional server-based applications presents a significant obstacle to the broader adoption of Web3. Xandeum's on chain storage solution will be the catalyst to realize the most consequential societal shifts of the 21st century, i.e., the empowerment of the user. Xandeum lays the foundation, facilitating the development and operation of storage-enabled decentralized apps (sedApps).
 
-Xandeum endeavors to propel one of the most consequential societal shifts of the 21st century, boosting the collective self-determination of our society, by facilitating the development and operation of storage-enabled decentralized apps (sedApps).
+Xandeum blurs the line between applications designed for the blockchain (Web3) and those hosted on servers leveraging data center or cloud based storage solutions (Web2). Web2 applications have access to high-speed, high-capacity centralized storage solutions allowing for dynamice creation, reading, updating, and deletion (CRUD) of data. Xandeum is the Web3 CRUD solution adding censorship-resistance and tamper-proof (immutability) that is effecient, scalable, secure, and fully integrated into the smart contract platform. Xandeum is to storage what what other Layer-1 block chain solutions are to the CPU.
 
-The problem with the status quo is that there is no solution available that adds a scalable, blockchain-based storage layer to smart contract platform, massively hampering the transition to more self-determination through real Web3 sedApps. Xandeum is designed to provide this missing link, and therefore accelerating humanity's transition to fully blockchain-governed, more self-determined future.
+Borrowing from an industry leading Layer-1 smart contract solution, Xadeum inherits and extends its scalability even while adding its External Global Grouped Storage (EGGS) storage layer solution while avoiding economic scaling challenges. Xandeum is designed from the ground up to be economical even while scaling to from today's exabyte challenges to tomorrow's yottabyte. Xandeum achieves these milestones by adopting, adapting, and improving upon proven stratgies pioneered from other storage focused block chains, while smartly applying lessons learned to overcome security, scalability, and economic challenges each of them have failed to overcome in part or whole.
 
-Xandeum narrows the gap between applications designed for the blockchain (Web3) and those designed for traditional Web2 architecture. Web2 applications have access to high-speed, high-capacity centralized storage solutions allowing for dynamic creation, reading, updating, and deletion (CRUD) of data.
-
-Xandeum proposes a blockchain-based CRUD storage layer, which is not only censorship-resistant and tamper-proof but also scalable, efficient, and fully integrated into the smart contract platform.
-
-While existing smart contract platforms, all lacking a scalable, blockchain-based storage layer, can be viewed as a "world CPU", Xandeum adds a "world SSD", completing the tech stack and resulting in a full "world computer" that can run Web3 sedApps while not having to make any major compromises in developer experience compared to web2 apps. 
-
-Borrowing from an industry leading Layer-1 smart contract solution, Xandeum inherits and extends its scalability even while adding its External Global Grouped Storage (EGGS) storage layer solution while avoiding economic scaling challenges. Xandeum is designed from the ground up to be economical even while scaling to from today's exabyte challenges to tomorrow's yottabyte. Xandeum achieves these milestones by adopting, adapting, and improving upon proven strategies pioneered from other storage focused block chains, while smartly applying lessons learned to overcome security, scalability, and economic challenges each of them have failed to overcome in part or whole.
-
-Xandeum's architecture facilitates seamless adoption, allowing developers to smoothly transition to Xandeum's storage solution. Xandeum has achieved this by embracing the Move programming language, allowing the same global storage operators to be used for both account and EGGS storage. This underscores Xandeum's commitment to minimizing friction in the transition from Web2 architecture to Xandeum's Web3 decentralized storage solution.
-\end{abstract}
-\normalsize
+Xandeum's architecture facilitates seamless adoption, allowing developers to smoothly transition to Xandeum's storage solution. Xandeum has achieved this by embracing the Move programming language, allowing the same global storage operators to be used for both account and EGGS storage. Compatiblity sits at the heart of Xandeum's commitment to developers and individuals alike, minimizing friction in the transition from Web2 data center or cloud storage-based applications to Xandeum's Web3 decentralized storage solution.
 
 \clearpage
 \tableofcontents
@@ -104,7 +99,7 @@ Xandeum's architecture facilitates seamless adoption, allowing developers to smo
 \subsection{Boost Self-Determination of the Individual}
 One of Xandeum's foremost design objectives is to boost the self-determination of the individual, a concept that sits at the core of decentralized technology. This aim transcends conventional use cases and focuses on a broader societal shift that lies at the heart of the blockchain revolution.
 
-Self-determination, as opposed to determination by foreign forces, has been a common theme for humanity for ages, and can even be traced back to evolution in general. Foreign forces can be tribal leaders, modern governments, the need to spend the day hunting in order to survive tomorrow, and much more. The following figure illustrates the point, using $\mathcal{D}_{S}$ as the degree of collective self-determination in society, on a scale of 0 (totally controlled by external forces) to 1 (ideal self-determination and self-realization). The fundamental importance of self-determination has been well documented in \cite{ryandeci18}.
+Self-determination, as opposed to determination by foreign forces, has been a common theme for humanity for ages, and can even be traced back to evolution in general. Foreign forces can be tribal leaders, modern governments, the need to spend the day hunting in order to survive tomorrow, and much more. The following figure illustrates the point, using $\mathcal{D}_{S}$ as the degree of collective self-determination in society, on a scale of 0 (totally controlled by external forces) to 1 (ideal self-determination and self-realization).
 
 \ \\
 
@@ -166,19 +161,17 @@ Xandeum's key design goal is to maximize $\mathcal{L}_{\mathit{i}}$, the liberat
 J = \arg \max_{j} \mathcal{L(\mathcal{X_j)}}
 \end{equation}
 
-The problem with the status quo is that there is no solution available that adds a scalable, blockchain-based storage layer to smart contract platform, massively hampering the transition to more self-determination through real Web3 sedApps. Xandeum is designed to provide this missing link, and therefore accelerating humanity's transition to fully blockchain-governed, more self-determined future.
-
 Self-determination or the ability to control one's own destiny, as it is interpreted here, pertains to the power of individuals to own, control, and benefit from their data. This is a sharp departure from the prevailing Web2 paradigm, where data is predominantly controlled by centralized entities such as corporations or governments. The advancement of decentralized technologies and Web3 has brought us to the precipice of a paradigm shift, where individuals regain control and derive the full value from their data.
 
 Xandeum furthers this vision by creating a Layer-1 platform that not only enables the development and operation of decentralized applications but also provides a robust, scalable, and efficient storage solution. In conventional server-based systems, programs have unrestricted access to vast and high-speed storage, allowing them to create, read, update, and delete data freely. This is not commonly the case with existing blockchain solutions.
 
-By offering a blockchain-based storage layer rivaling the performance of traditional servers, Xandeum places power back in the hands of the individual. Xandeum is censorship-resistant and tamper-proof, giving individuals greater control over their data. In addition, the scalability and efficiency of Xandeum's storage solution make it an economically viable option for developers and end users alike.
+By offering a blockchain-based storage layer that rivals the performance of traditional servers, Xandeum places power back in the hands of the individual. This blockchain-based storage layer is censorship-resistant and tamper-proof, giving individuals greater control over their data. In addition, the scalability and efficiency of Xandeum's storage solution make it an economically viable option for users.
 
-Xandeum's design incorporates the proven reliability of blockchain technology, such as Solana's smart contract layer and the innovative EGGS (External Global Grouped Storage) system. This ensures the platform can handle the vast volumes of data that individuals and decentralized applications generate.
+Xandeum's design incorporates the proven reliability of blockchain technology, such as Solana's smart contract layer and the innovative EGGS (External Global Grouped Storage) system. This ensures that the platform can handle the vast volumes of data that individuals and decentralized applications generate.
 
-Leveraging the Move language \cite{shamanaev20} by default reduces the barrier to entry for developers and promotes the further creation of applications that favor collective self-determination in our society. The consistent use of Move's global storage operators for both the Accounts storage and the EGGS simplifies the development process, making the system more accessible to individual users and developers.
+The usage of the Move language by default reduces the barrier to entry for developers and promotes the further creation of applications that favor individual empowerment. The consistent use of Move's global storage operators for both the Accounts storage and the EGGS simplifies the development process, making the system more accessible to individual users and developers.
 
-In conclusion, Xandeum's design embodies the idea of accelerating humanity's transition to higher self-determination of the individual. It achieves this by enabling Web3 sedApps where not only code execution but also the associated data storage is owned and governed by a decentralized blockchain. It bridges the gap between the capabilities of conventional server-based systems and blockchain solutions, creating a platform where individuals have unprecedented control over their data. The advent of Xandeum is a significant stride toward a decentralized future where individuals are the true custodians of their data.
+Xandeum's design embodies the idea of individual empowerment. It bridges the gap between the capabilities of conventional server-based systems and blockchain solutions, creating a platform where individuals have unprecedented control over their data. The advent of Xandeum is a significant stride toward a decentralized future where individuals are the true custodians of their data.
 
 \subsection{Removing Web3 Roadblocks}
 Presently, the broader transition towards a decentralized internet, or Web3, faces significant technological barriers that inhibit the development and implementation of storage-enabled decentralized apps (sedApps). These challenges present sizable roadblocks for startups aiming to bring Web3 analogs of popular Web2 applications like Airbnb and eBay to fruition.
@@ -191,11 +184,11 @@ The technical proficiency required to develop on the blockchain is another consi
 
 Xandeum aims to dismantle these roadblocks through its innovative design. By introducing an efficient, scalable, blockchain-based storage layer, Xandeum delivers a solution that rivals the performance of conventional servers. The storage layer is integrated into a Layer-1 smart contract platform, enabling developers to build robust and fully decentralized applications.
 
-Xandeum's scalable storage solution, powered by EGGS (External Global Grouped Storage) and a fork of Solana's smart contract layer, is engineered to handle large volumes of data economically, making it viable for startups developing ambitious Web3 applications. The storage solution is not only efficient and secure but is also resistant to censorship and tampering, underscoring the platform's commitment to a decentralized Web3 ecosystem.
+Xandeum's scalable storage solution, powered by EGGS (External Global Grouped Storage) and a fork of Solana's smart contract layer, is engineered to handle large volumes of data economically, making it viable for projects developing ambitious Web3 applications. The storage solution is not only efficient and secure but is also resistant to censorship and tampering, underscoring the platform's commitment to a decentralized Web3 ecosystem.
 
 Moreover, Xandeum mitigates the entry barrier for developers by adopting the Move language as its default programming language. Move's global storage operators are used consistently across Xandeum's platform for both Accounts storage and the EGGS, simplifying the development process and making the transition to blockchain development less daunting for developers.
 
-In summary, Xandeum is designed to eliminate the roadblocks hampering the growth of Web3, providing startups with the tools necessary to bring their visions of decentralized applications to life. This approach clears the path for the creation of Web3 counterparts of popular Web2 applications, marking a critical step towards a fully decentralized internet.
+Xandeum is designed to eliminate the roadblocks hampering the growth of Web3, providing developers with the tools necessary to bring their visions of decentralized applications to life. This approach clears the path for the creation of Web3 counterparts of popular Web2 applications, marking a critical step towards a fully decentralized internet.
 
 \subsection{Frictionless Adoption}
 Ensuring frictionless adoption of new technologies is a vital aspect of promoting their use and facilitating a successful transition. Xandeum acknowledges this necessity and, as a core design principle, has embedded mechanisms to foster easy and seamless integration into its platform.
@@ -204,28 +197,28 @@ Adoption is made effortless through Xandeum's use of the Move language as its de
 
 Moreover, Xandeum eliminates the necessity of negotiating individual storage deals—a cumbersome process that is common in other decentralized storage solutions like Sia and Filecoin. Instead, Xandeum's blockchain-based storage solution is straightforward, with storage provision and management integrated into the Layer-1 platform, thereby reducing transactional friction and enhancing the user experience.
 
-The exceptional speed and performance of Xandeum's platform also contribute to frictionless adoption. By leveraging a modified version of Solana and an efficient, purpose-built EGGS layer, Xandeum delivers a scalable and high-performing solution that can comfortably handle the demands of storage-enabled decentralized apps (sedApps), no matter the scale of their operations.
+The exceptional speed and performance of Xandeum's platform also contributes to frictionless adoption. By leveraging a modified version of Solana and an efficient, purpose-built EGGS layer, Xandeum delivers a scalable and high-performing solution that can comfortably handle the demands of storage-enabled decentralized apps (sedApps), no matter the scale of their operations.
 
 Scalability is central to the design of Xandeum, engineered to ensure the platform can accommodate the vast quantities of data generated by decentralized applications and individual users alike. This scalability doesn't compromise the platform's economic viability; rather, it enhances it. As the system scales, it remains efficient and affordable, which is crucial for startups and individual developers sensitive to operational costs.
 
 The issue of cost-effectiveness is further addressed through Xandeum's dynamic fee structure for both smart contract transactions and storage provisions. By adjusting fees based on market conditions, Xandeum offers a responsive and fair cost model, alleviating the financial burdens typically associated with blockchain storage and transactions.
 
-In summary, Xandeum's design principles encompass and address the essential components for frictionless adoption: ease of use, seamless integration, speed, scalability, and affordability. By committing to these principles, Xandeum ensures that the transition to decentralized storage and the development of sedApps on its platform is as smooth as possible, reducing the barriers to entry for a new generation of Web3 applications.
+Xandeum's design principles encompass and address the essential components for frictionless adoption: ease of use, seamless integration, speed, scalability, and affordability. By committing to these principles, Xandeum ensures that the transition to decentralized storage and the development of sedApps on its platform is as smooth as possible, reducing the barriers to entry for a new generation of Web3 applications.
 
 \section{Smart Contracts Layer}
 \subsection{Permissioned Fork of Solana}
-Xandeum's smart contract layer is built on a permissioned fork of Solana \cite{yakovenko17}, a design decision underpinned by our unique funding model and commitment to community engagement. Unlike many blockchain startups, Xandeum chose not to pursue traditional venture capital in its early phases. Instead, it introduced a novel Solana-based crowdfunding platform known as "NodeStore" to sell licenses for its validator software to its community. This innovative funding model not only fosters a vibrant and invested community but also has proven very successful in supporting Xandeum's growth.
+Xandeum's smart contract layer is built upon a permissioned fork of Solana, a design decision underpinned by our unique funding model and commitment to community engagement. Unlike many blockchain startups, Xandeum chose not to pursue traditional venture capital in its early phases. Instead, it introduced a novel Solana-based crowdfunding platform known as "NodeStore" to sell licenses for its validator software to its community. This innovative funding model not only fosters a vibrant and invested community but also has proven very successful in supporting Xandeum's growth.
 
-The permissioned nature of Xandeum's Solana fork is integral to this funding model. By incorporating a closed-source permission layer, Xandeum can ensure that only licensed software operators can validate transactions. Despite this permissioned feature, Xandeum harnesses the full power and scalability of the Solana blockchain for its smart contract layer, contributing to a highly efficient, performant, and secure platform. Any modifications to the Solana codebase that do not implicate the permission layer are made open-source, reflecting Xandeum's commitment to transparency and community involvement.
+The permissioned nature of Xandeum's Solana fork is integral to this funding model. By incorporating a closed-source permission layer, Xandeum can ensure that only licensed software operators can validate transactions. Despite this permissioned feature, Xandeum harnesses the full power and scalability of the Solana blockchain for its smart contract layer, contributing to a highly efficient, performant, and secure platform. Any modifications to the Solana codebase that do not implicate the permission layer are made open source, reflecting Xandeum's commitment to transparency and community involvement.
 
-The choice to base the smart contract layer on Solana stems from a careful comparison of smart contract chains and their alignment with Xandeum's design goals. Among the competing platforms, Solana was identified as the most promising due to its superior scalability, performance, and architectural robustness, outlined in \cite{yakovenko19}. Moreover, our team's experience operating the Bitoku Validator—a high-performance Solana validator—for about a year provided invaluable insights into Solana's capabilities and potential enhancements, further confirming Solana as the ideal choice.
+The choice to base the smart contract layer on Solana stems from a careful comparison of smart contract chains and their alignment with Xandeum's design goals. Among the competing platforms, Solana was identified as the most promising due to its superior scalability, performance, and architectural robustness. Moreover, our team's experience operating the Bitoku Validator—a high-performance Solana validator—for about a year provided invaluable insights into Solana's capabilities and potential enhancements, further confirming Solana as the ideal choice.
 
-In conclusion, the permissioned fork of Solana serves as the foundation of Xandeum's smart contract layer. It combines the best of Solana's attributes with Xandeum's unique permission layer, creating an efficient, scalable, and secure platform that is funded and maintained by an engaged community of license-holders. This design decision not only supports our commitment to individual empowerment and frictionless adoption but also illustrates the innovative approaches Xandeum is taking to achieve its ambitious goals.
+The permissioned fork of Solana serves as the foundation of Xandeum's smart contract layer. It combines the best of Solana's attributes with Xandeum's unique permission layer, creating an efficient, scalable, and secure platform that is funded and maintained by an engaged community of license-holders. This design decision not only supports our commitment to individual empowerment and frictionless adoption but also illustrates the innovative approaches Xandeum is taking to achieve its ambitious goals.
 
 \subsection{Use of the Move Language}
 A critical component supporting our design goals is the adoption of the Move language, an innovative programming language for the implementation of smart contracts. With its robust safety features and approachability, Move contributes significantly to the overall efficiency and security of the Xandeum platform.
 
-According to the Move Book, the representation of global storage in pseudocode is as follows:
+The representation of global storage according to the Move Book_{cite}, in pseudocode, is as follows:
 
 \ \\
 \begin{lstlisting}[caption=Global Storage in Move]
@@ -282,7 +275,7 @@ As an 'external' layer, EGGS delegates storage management from the main chain's 
 
 The 'grouped' facet of EGGS denotes that the global storage layer is partitioned into distinct 'buckets', allocated to specific sedApps. This intelligent partitioning helps prevent clashes in namespaces and enhances the efficiency and manageability of storage allocation, giving each sedApp its private storage namespace within the global storage layer.
 
-EGGS uses a combination of Proof of Storage (PoS) and Proof of Replication (PoRep) to ensure data integrity and availability across the network. These protocols, pioneered by Filecoin, work in conjunction with zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Argument of Knowledge) \cite{leastauth21} to allow validators to periodically verify the reliability of storage providers without compromising security or privacy.
+EGGS uses a combination of Proof of Storage (PoS) and Proof of Replication (PoRep) to ensure data integrity and availability across the network. These protocols, pioneered by Filecoin, work in conjunction with zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Argument of Knowledge) to allow validators to periodically verify the reliability of storage providers without compromising security or privacy.
 
 A key innovation in Xandeum's approach is the elimination of Proof of SpaceTime (PoST), a method used by many standalone storage chains that has been identified as a significant scalability, efficiency, and environmental bottleneck. Instead, Xandeum utilizes a modified version of Solana as the underlying blockchain, capable of logging zero-knowledge proofs at an exceptionally high rate, thus overcoming the limitations of PoST.
 
@@ -302,9 +295,9 @@ Further bolstering fault tolerance, Xandeum incorporates the use of erasure code
 Therefore, Xandeum's approach provides a robust and scalable solution, addressing the critical need for fault tolerance while also catering to the storage requirements of the increasingly popular sedApps.
 
 \subsection{Proof of Replication}
-In a decentralized storage system that necessitates redundancy and fault tolerance, there is a strong incentive for actors to appear as multiple independent entities to receive payment for several replicas of a file, while only storing it once. This form of deception, known as a sybil attack, can undermine the integrity of the storage system and significantly compromise its fault tolerance capabilities.
+In a decentralized storage system that necessitates redundancy and fault tolerance, there is a strong incentive for actors to appear as multiple independent entities to receive payment for several replicas of a file, while only storing it once. This form of deception, known as a Sybil attack, can undermine the integrity of the storage system and significantly compromise its fault tolerance capabilities.
 
-To mitigate this threat, Xandeum employs not only Proof of Retrievability \cite{shachamwaters08} but also a concept called Proof of Replication (PoRep), building upon the foundations laid by Filecoin's \cite{filecoin17} implementation of the same. For an in-depth understanding, readers are referred to Filecoin's comprehensive documentation on their PoRep mechanism.
+To mitigate this threat, Xandeum employs a concept called Proof of Replication (PoRep), building upon the foundations laid by Filecoin's implementation of the same. For an in-depth understanding, readers are referred to Filecoin's comprehensive documentation on their PoRep mechanism.
 
 At a high level, Proof of Replication is a cryptographic method that ensures the actual replication of data across a storage system. The key feature of PoRep is its ability to prove, in a verifiable manner, that a unique copy of a particular piece of data has been independently stored by a prover (in this case, the storage node).
 
@@ -326,7 +319,7 @@ Crucially, the implementation of PoST is generally necessitated by the limitatio
 This innovation negates the requirement for constant, high-frequency writes to the SSDs, significantly prolonging their lifespan, reducing costs, and minimizing electronic waste. This not only offers an economic advantage but also aligns with our environmental responsibilities. By eliminating the need for PoST, Xandeum substantively progresses towards its design goals, offering a more efficient, economical, and eco-friendly solution for decentralized storage.
 
 \subsection{Practical zk-SNARK Implementation}
-Zero-knowledge succinct non-interactive argument of knowledge (zk-SNARKs) \cite{leastauth21} are a form of cryptographic proof that enable one party to prove to another that a given statement is true, without revealing any additional information beyond the veracity of the statement. The utility of zk-SNARKs in the context of decentralized storage has been successfully demonstrated by Filecoin, and Xandeum adopts a similar approach, with some significant enhancements.
+Zero-knowledge succinct non-interactive argument of knowledge (zk-SNARKs) are a form of cryptographic proof that enable one party to prove to another that a given statement is true, without revealing any additional information beyond the veracity of the statement. The utility of zk-SNARKs in the context of decentralized storage has been successfully demonstrated by Filecoin, and Xandeum adopts a similar approach, with some significant enhancements.
 
 In Filecoin, zk-SNARKs are utilized to construct Proof of Replication (PoRep) and Proof of Spacetime (PoSt), which are the core components of Filecoin's storage protocol. PoRep provides a guarantee that a unique encoding of data has been stored, and PoSt proves that this data continues to be stored over time.
 
@@ -349,61 +342,7 @@ To ensure transparency, Xandeum offers extensive dashboards providing real-time 
 
 The importance of effective supply-demand management cannot be overstated in blockchain and other distributed systems. With systems like Xandeum, where storage space is a primary commodity, this becomes even more critical. By applying the principles of dynamic pricing, machine learning-based forecasting, and providing real-time transparency, Xandeum is pioneering a sophisticated model for supply-demand management in decentralized storage systems.
 
-\begin{thebibliography}{99}
-
-\bibitem{yakovenko17}
-  Anatoly Yakovenko,
-  \textit{Solana: A new architecture for a high performance blockchain}.
-  \url{https://solana.com/solana-whitepaper.pdf}
-  v0.8.13,
-  2017.
-
-\bibitem{ryandeci18}
-  Richard M. Ryan, Edward L. Deci,
-  \textit{Self-Determination Theory: Basic Psychological Needs in Motivation, Development, and Wellness}.
-  The Guilford Press,
-  1st Edition,
-  2018,
-  ISBN 978-1462538966.
-
-\bibitem{shachamwaters08}
-  Shacham, H., Waters, B.,
-  \textit{Compact Proofs of Retrievability}.
-  Springer, Berlin, Heidelberg,
-  ASIACRYPT 2008. ASIACRYPT 2008. Lecture Notes in Computer Science, vol 5350.,
-  2008,
-  ISBN 978-3-540-89255-7.
-
-\bibitem{sia14}
-  David Vorick, Luke Champine,
-  \textit{Sia: Simple Decentralized Storage}.
-  \url{https://sia.tech/sia.pdf}
-  2014.
-  
-  \bibitem{yakovenko19}
-  Anatoly Yakovenko,
-  \textit{7 Innovations that Make Solana the First Web-Scale Blockchain}.
-  \url{https://medium.com/solana-labs/7-innovations-that-make-solana-the-first-web-scale-blockchain-ddc50b1defda}
-   2017.
- 
- \bibitem{filecoin17}
-  Protocol Labs,
-  \textit{Filecoin: A Decentralized Storage Network}.
-  \url{https://filecoin.io/filecoin.pdf}
-  2017.
-
- \bibitem{shamanaev20}
-  Damir Shamanaev,
-  \textit{The Move Book}.
-  \url{https://move-book.com}
-  2020.
-
- \bibitem{leastauth21}
-  The Least Authority,
-  \textit{The MoonMath Manual}.
-  \url{https://leastauthority.com/community-matters/moonmath-manual/}
-  2021.
-
-\end{thebibliography}
+\section{Economics}
+tbd
 
 \end{document}  
