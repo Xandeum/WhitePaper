@@ -1,16 +1,15 @@
-\contentsline {section}{\numberline {1}Design Goals}{4}{}%
-\contentsline {subsection}{\numberline {1.1}Boost Self-Determination of the Individual}{4}{}%
-\contentsline {subsection}{\numberline {1.2}Removing Web3 Roadblocks}{6}{}%
-\contentsline {subsection}{\numberline {1.3}Frictionless Adoption}{7}{}%
-\contentsline {section}{\numberline {2}Smart Contracts Layer}{9}{}%
-\contentsline {subsection}{\numberline {2.1}Permissioned Fork of Solana}{9}{}%
-\contentsline {subsection}{\numberline {2.2}Use of the Move Language}{9}{}%
-\contentsline {subsection}{\numberline {2.3}Storage Follows Control}{10}{}%
-\contentsline {section}{\numberline {3}Storage Layer}{13}{}%
-\contentsline {subsection}{\numberline {3.1}External Global Grouped Storage (EGGS) Overview}{13}{}%
-\contentsline {subsection}{\numberline {3.2}Fault Tolerance}{14}{}%
-\contentsline {subsection}{\numberline {3.3}Proof of Replication}{14}{}%
-\contentsline {subsection}{\numberline {3.4}Elimination of Proof of Spacetime (PoST)}{15}{}%
-\contentsline {subsection}{\numberline {3.5}Practical zk-SNARK Implementation}{16}{}%
-\contentsline {section}{\numberline {4}Market Dynamics}{18}{}%
-\contentsline {section}{\numberline {5}Economics}{19}{}%
+\contentsline {section}{\numberline {1}Design Goals}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Boost Self-Determination of the Individual}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Removing Web3 Roadblocks}{7}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Frictionless Adoption}{8}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Smart Contracts Layer}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Permissioned Fork of Solana}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Use of the Move Language}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Storage Follows Control}{12}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Storage Layer}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}External Global Grouped Storage (EGGS) Overview}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fault Tolerance}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Proof of Replication}{16}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Elimination of Proof of Spacetime (PoST)}{17}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Practical zk-SNARK Implementation}{17}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Market Dynamics}{19}{section.4}%
